@@ -18,19 +18,6 @@ class LibraryApplicationTests {
     MockMvc mockMvc;
 
     @Test
-    @Transactional
-    public void testAuthorSave() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders
-                .post("/authors/save")
-                .content("{ " +
-                        "\"secondName\":\"Пушкин\", " +
-                        "\"firstName\": \"Александр\"" +
-                        "}")
-                .contentType("application/json")
-        ).andExpect(status().isOk());
-    }
-
-    @Test
     void getAllBooksTest() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/library/users/1/books"))
                 .andExpect(status().isOk()
@@ -44,4 +31,10 @@ class LibraryApplicationTests {
                 );
     }
 
+    @Test
+    void getAllUsersByAuthorTest() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/library/authors/2/users"))
+                .andExpect(status().isOk()
+                );
+    }
 }
