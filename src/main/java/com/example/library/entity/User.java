@@ -1,7 +1,6 @@
 package com.example.library.entity;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 
 @Entity
 public class User {
@@ -11,7 +10,6 @@ public class User {
     long id;
     String firstName;
     String secondName;
-    SimpleDateFormat birthDay = new SimpleDateFormat("dd-MM-y");
 
     public long getId() {
         return id;
@@ -37,11 +35,4 @@ public class User {
         this.secondName = secondName;
     }
 
-    public SimpleDateFormat getBirthDay() {
-        return birthDay;
-    }
-
-    public void setBirthDay(SimpleDateFormat birthDay) {
-        this.birthDay = birthDay;
-    }
 }
