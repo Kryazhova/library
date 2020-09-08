@@ -13,4 +13,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     List<Book> findAllByUser_Id(Long userId);
 
+    Book getById(Long bookId);
+
 }

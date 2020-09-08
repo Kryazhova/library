@@ -37,4 +37,45 @@ class LibraryApplicationTests {
                 .andExpect(status().isOk()
                 );
     }
+
+    @Test
+    @Transactional
+    public void testAuthorSave() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders
+                .post("/library/authors/save")
+                .content("{ " +
+                        "\"firstName\": \"Александр\", " +
+                        "\"secondName\":\"Пушкин\"" +
+                        "}")
+                .contentType("application/json")
+        ).andExpect(status().isOk());
+    }
+
+    @Test
+    @Transactional
+    public void tesUserSave() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders
+                .post("/library/users/save")
+                .content("{ " +
+                        "\"firstName\": \"Михаил\", " +
+                        "\"secondName\":\"Михайлов\"" +
+                        "}")
+                .contentType("application/json")
+        ).andExpect(status().isOk());
+    }
+
+    @Test
+    @Transactional
+    public void tesBookSave() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders
+                .post("/library/books/save")
+                .content("{ " +
+                        "\"bookTitle\": \"Два Гусара\", " +
+                        "\"author\": { \"id\": 2 }" +
+                    "}"
+                )
+                .contentType("application/json")
+        ).andExpect(status().isOk());
+    }
+
 }
